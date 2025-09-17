@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Genesis 1:1-31 VR Creation Experience</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+  <!-- A-Frame animation component for sequencing -->
+  <script src="https://unpkg.com/aframe-animation-component@5.1.2/dist/aframe-animation-component.min.js"></script>
+</head>
+<body>
+  <a-scene background="color: #000022">
+    <!-- VR Camera -->
+    <a-entity id="camera" camera position="0 2 10" look-controls wasd-controls></a-entity>
+
+    <!-- Cosmic Background (Stars and Nebula) -->
+    <a-sky id="sky" color="#000022" radius="100"></a-sky>
+    <a-entity particle-system="preset: starfield; color: #ffffff, #aaaaff; particleCount: 1000"></a-entity>
+
+    <!-- Day 1: Light and Darkness (Genesis 1:1-5) -->
+    <a-entity id="day1">
+      <a-text
+        value="Day 1: In the beginning God created the heavens and the earth... And God said, 'Let there be light,' and there was light."
+        font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+        color="#ffffff"
+        position="0 2 -5"
+        scale="1.5 1.5 1.5"
+        align="center"
+        visible="true"
+        animation__fadeout="property: visible; to: false; dur: 5000; delay: 5000"
+      ></aasko>
+      <a-entity light="type: point; intensity: 0; color: #ffffff; distance: 50"
+                position="0 0 -10"
+                animation="property: light.intensity; from: 0; to: 1.5; dur: 3000; delay: 2000; easing: easeInSine">
+      </a-entity>
+    </a-entity>
+
+    <!-- Day 2: Sky and Waters (Genesis 1:6-8) -->
+    <a-entity id="day2" visible="false">
+      <a-text
+        value="Day 2: And God said, 'Let there be a vault between the waters to separate water from water.'"
+        font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+        color="#ffffff"
+        position="0 2 -5"
+        scale="1.5 1.5 1.5"
+        align="center"
+        animation__fadein="property: visible; to: true; dur: 0; delay: 6000"
+        animation__fadeout="property: visible; to: false; dur: 5000; delay: 11000"
+      ></a-text>
+      <a-entity geometry="primitive: sphere; radius: 10" material="color: #1e90ff; opacity: 0.4; shader: flat"
+                position="0 0 -8"
+                animation="property: visible; to: true; dur: 0; delay: 6000"
+      ></a-entity>
+    </a-entity>
+
+    <!-- Day 3: Land, Seas, and Plants (Genesis 1:9-13) -->
+    <a-entity id="day3" visible="false">
+      <a-text
+        value="Day 3: And God said, 'Let the water under the sky be gathered to one place, and let dry ground appear.'"
+        font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+        color="#ffffff"
+        position="0 2 -5"
+        scale="1.5 1.5 1.5"
+        align="center"
+        animation__fadein="property: visible; to: true; dur: 0; delay: 12000"
+        animation__fadeout="property: visible; to: false; dur: 5000; delay: 17000"
+      ></a-text>
+      <a-entity geometry="primitive: plane; width: 20; height: 20" material="color: #228B22; shader: flat"
+                position="0 -2 -8" rotation="-90 0 0"
+                animation="property: visible; to: true; dur: 0; delay: 12000"
+      ></a-entity>
+      <a-entity particle-system="preset: dust; color: #00ff00; particleCount: 200; velocity: 0 0.2 0"
+                position="0 -1 -8"
+                animation="property: visible; to: true; dur: 0; delay: 12000"
+      ></a-entity>
+    </a-entity>
+
+    <!-- Day 4: Sun, Moon, and Stars (Genesis 1:14-19) -->
+    <a-entity id="day4" visible="false">
+      <a-text
+        value="Day 4: And God said, 'Let there be lights in the vault of the sky to separate the day from the night.'"
+        font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+        color="#ffffff"
+        position="0 2 -5"
+        scale="1.5 1.5 1.5"
+        align="center"
+        animation__fadein="property: visible; to: true; dur: 0; delay: 18000"
+        animation__fadeout="property: visible; to: false; dur: 5000; delay: 23000"
+      ></a-text>
+      <a-sphere radius="1" material="color: #ffcc00; shader: flat" position="2 3 -10"
+                animation="property: visible; to: true; dur: 0; delay: 18000"
+      ></a-sphere>
+      <a-sphere radius="0.5" material="color: #cccccc; shader: flat" position="-2 3 -10"
+                animation="property: visible; to: true; dur: 0; delay: 18000"
+      ></a-sphere>
+    </a-entity>
+
+    <!-- Day 5: Sea Creatures and Birds (Genesis 1:20-23) -->
+    <a-entity id="day5" visible="false">
+      <a-text
+        value="Day 5: And God said, 'Let the water teem with living creatures, and let birds fly above the earth.'"
+        font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+        color="#ffffff"
+        position="0 2 -5"
+        scale="1.5 1.5 1.5"
+        align="center"
+        animation__fadein="property: visible; to: true; dur: 0; delay: 24000"
+        animation__fadeout="property: visible; to: false; dur: 5000; delay: 29000"
+      ></a-text>
+      <a-entity geometry="primitive: sphere; radius: 0.2" material="color: #1e90ff"
+                position="0 0 -8"
+                animation="property: position; to: 0 0.5 -8; dur: 2000; easing: easeInOutSine; loop: true; dir: alternate; delay: 24000"
+      ></a-entity>
+    </a-entity>
+
+    <!-- Day 6: Land Animals and Humans (Genesis 1:24-31) -->
+    <a-entity id="day6" visible="false">
+      <a-text
+        value="Day 6: And God said, 'Let the land produce living creatures... and let us make mankind in our image.'"
+        font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+        color="#ffffff"
+        position="0 2 -5"
+        scale="1.5 1.5 1.5"
+        align="center"
+        animation__fadein="property: visible; to: true; dur: 0; delay: 30000"
+        animation__fadeout="property: visible; to: false; dur: 5000; delay: 35000"
+      ></a-text>
+      <a-entity geometry="primitive: box; width: 0.5; height: 1; depth: 0.2" material="color: #8B4513"
+                position="1 -1 -8"
+                animation="property: visible; to: true; dur: 0; delay: 30000"
+      ></a-entity>
+    </a-entity>
+  </a-scene>
+
+  <!-- JavaScript for Scene Transitions -->
+  <script>
+    // Sequence the days with delays
+    setTimeout(() => document.querySelector('#day2').setAttribute('visible', 'true'), 6000);
+    setTimeout(() => document.querySelector('#day3').setAttribute('visible', 'true'), 12000);
+    setTimeout(() => document.querySelector('#day4').setAttribute('visible', 'true'), 18000);
+    setTimeout(() => document.querySelector('#day5').setAttribute('visible', 'true'), 24000);
+    setTimeout(() => document.querySelector('#day6').setAttribute('visible', 'true'), 30000);
+  </script>
+</body>
+</html>
